@@ -3,6 +3,7 @@ from discord.ext import commands
 import logging
 from dotenv import load_dotenv
 import os
+import webserver
 
 load_dotenv()
 # add token
@@ -17,7 +18,7 @@ bot = commands.Bot(command_prefix='?', intents=intents)
 
 @bot.event
 async def on_ready():
-    print(f'Logged in as {bot.user.name}')
+    print(f'{bot.user.name} active!')
 
 
 # @bot.event
@@ -69,4 +70,6 @@ async def on_raw_reaction_remove(rxn):
         btchr = discord.utils.get(gld.roles, name = btc)
         if btchr is not None:
             await u.remove_roles(btchr)
+
+webserver.keepalive()
 bot.run(token)
