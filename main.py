@@ -15,6 +15,8 @@ intents.members = True
 intents.auto_moderation = True
 
 bot = commands.Bot(command_prefix='?', intents=intents)
+# global msgid
+msgid = 1380881692557836329
 
 @bot.event
 async def on_ready():
@@ -35,9 +37,6 @@ async def rol(ctx):
     await rmsg.add_reaction('1️⃣')
     await rmsg.add_reaction('2️⃣')
     await rmsg.add_reaction('3️⃣')
-
-    global msgid
-    msgid= rmsg.id
 
 @bot.event
 async def on_raw_reaction_add(rxn):
