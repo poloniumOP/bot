@@ -49,6 +49,10 @@ async def on_raw_reaction_add(rxn):
     rldct = {'1️⃣': "Batch of 2027'",'2️⃣': "Batch of 2028'",'3️⃣': "Batch of 2029'"}
     # while editing make sure that the role names end with '
     btc = rldct.get(rxn.emoji.name)
+    for rl in rldct.values():
+        btchr = discord.utils.get(gld.roles, name = rl)
+        if btchr in u.roles:
+            await u.remove_roles(btchr)
     if btc is not None:
         btchr = discord.utils.get(gld.roles, name = btc)
         if btchr is not None:
