@@ -89,4 +89,7 @@ async def on_raw_reaction_remove(rxn):
             await u.remove_roles(btchr)
 
 webserver.keepalive()
-bot.run(token)
+try:
+    bot.run(token)
+except Exception as e:
+    print(f'Bot crashed {e}')
